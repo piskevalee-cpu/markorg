@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation - MARK Docs</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="marknewlogo.png">
+
+    <!-- Google Fonts - adding retro/video game style font for titles -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DM+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>MARK</h2>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#installation">Installation</a>
+                <a href="/#commands">Commands</a>
+                <a href="/#kleos">Kleos</a>
+                <a href="/#memory">Memory</a>
+                <a href="/#models">Models</a>
+                <a href="/#configuration">Config</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="https://github.com/piskevalee-cpu/mark" target="_blank" class="github-link">
+                    <i data-lucide="github"></i>
+                    GitHub
+                </a>
+                <a href="https://github.com/piskevalee-cpu/mark/archive/refs/heads/main.zip" class="download-btn">
+                    <i data-lucide="download"></i>
+                    Download
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Installation Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Installation Guide</h1>
+            <p>Get MARK up and running on your system in minutes with this step-by-step guide.</p>
+        </div>
+    </section>
+
+    <!-- Installation Content -->
+    <section class="installation-page">
+        <div class="container">
+            <div class="requirements">
+                <h2>System Requirements</h2>
+                <ul>
+                    <li><strong>Python:</strong> Version 3.8 or higher</li>
+                    <li><strong>Operating System:</strong> Windows, macOS, or Linux</li>
+                    <li><strong>Internet Connection:</strong> Required for initial setup and API access</li>
+                    <li><strong>Disk Space:</strong> ~50MB for installation</li>
+                </ul>
+            </div>
+            
+            <div class="installation-steps">
+                <h2>Installation Steps</h2>
+                
+                <div class="step-group">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Verify Python Installation</h3>
+                        <p>First, ensure you have Python 3.8+ installed:</p>
+                        <pre><code class="language-bash">python --version
+# or
+python3 --version</code></pre>
+                        <p>If Python is not installed or you have an older version, download it from <a href="https://www.python.org/downloads/" target="_blank">python.org</a>.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Clone the Repository</h3>
+                        <p>Download the MARK source code from GitHub:</p>
+                        <pre><code class="language-bash">git clone https://github.com/piskevalee-cpu/MARK.git
+cd mark</code></pre>
+                        <p>If you don't have Git installed, you can download the ZIP archive from the <a href="https://github.com/piskevalee-cpu/mark" target="_blank">GitHub repository</a> and extract it.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Install MARK</h3>
+                        <p>Install MARK globally on your system:</p>
+                        <pre><code class="language-bash">pip install .</code></pre>
+                        <p>Alternatively, you can install in development mode if you plan to contribute:</p>
+                        <pre><code class="language-bash">pip install -e .</code></pre>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3>Run MARK</h3>
+                        <p>Launch MARK for the first time:</p>
+                        <pre><code class="language-bash">mark</code></pre>
+                        <p>On first run, MARK will guide you through the initial setup process to configure your API keys.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="setup-process">
+                <h2>Initial Setup Process</h2>
+                <p>During the first run, MARK will guide you through the following setup steps:</p>
+                
+                <div class="setup-steps">
+                    <div class="setup-step">
+                        <div class="step-indicator">1</div>
+                        <div class="step-content">
+                            <h4>User Name</h4>
+                            <p>Enter your name so MARK can address you personally.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="setup-step">
+                        <div class="step-indicator">2</div>
+                        <div class="step-content">
+                            <h4>AI Provider Selection</h4>
+                            <p>Choose between Groq (recommended for speed) or Google Gemini.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="setup-step">
+                        <div class="step-indicator">3</div>
+                        <div class="step-content">
+                            <h4>API Key Configuration</h4>
+                            <p>Enter your API key for the selected provider:</p>
+                            <ul>
+                                <li><strong>Groq:</strong> Get a key from <a href="https://console.groq.com/keys" target="_blank">console.groq.com</a></li>
+                                <li><strong>Google:</strong> Get a key from <a href="https://aistudio.google.com/apikey" target="_blank">aistudio.google.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="setup-step">
+                        <div class="step-indicator">4</div>
+                        <div class="step-content">
+                            <h4>Model Selection</h4>
+                            <p>Choose the AI model you want to use:</p>
+                            <ul>
+                                <li><strong>Groq Options:</strong> Llama 3.3 70B, GPT-OSS 120B, Kimi K2</li>
+                                <li><strong>Google Options:</strong> Gemini 2.5 Flash, Gemma 3 27B</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="troubleshooting">
+                <h2>Troubleshooting</h2>
+                
+                <div class="issue-card">
+                    <h3>Permission Errors</h3>
+                    <p>If you encounter permission errors during installation, try installing with the <code>--user</code> flag:</p>
+                    <pre><code class="language-bash">pip install --user .</code></pre>
+                </div>
+                
+                <div class="issue-card">
+                    <h3>Python Version Issues</h3>
+                    <p>If you have multiple Python versions, ensure you're using Python 3.8+:</p>
+                    <pre><code class="language-bash">python3.11 -m pip install .</code></pre>
+                </div>
+                
+                <div class="issue-card">
+                    <h3>Virtual Environment</h3>
+                    <p>For isolated installation, use a virtual environment:</p>
+                    <pre><code class="language-bash"># Create virtual environment
+python -m venv mark_env
+
+# Activate it (Windows)
+mark_env\Scripts\activate
+# Activate it (macOS/Linux)
+source mark_env/bin/activate
+
+# Install MARK
+pip install .</code></pre>
+                </div>
+                
+                <div class="issue-card">
+                    <h3>Dependency Conflicts</h3>
+                    <p>If you encounter dependency conflicts, try upgrading pip first:</p>
+                    <pre><code class="language-bash">pip install --upgrade pip
+pip install .</code></pre>
+                </div>
+            </div>
+            
+            <div class="next-steps">
+                <h2>Next Steps</h2>
+                <p>After successful installation, explore MARK's features:</p>
+                
+                <div class="next-grid">
+                    <a href="/#commands" class="next-card">
+                        <i data-lucide="command"></i>
+                        <h3>Command Reference</h3>
+                        <p>Learn all available commands</p>
+                    </a>
+                    
+                    <a href="/#kleos" class="next-card">
+                        <i data-lucide="cpu"></i>
+                        <h3 style="color: var(--kleos);">Kleos System</h3>
+                        <p>Discover advanced reasoning</p>
+                    </a>
+                    
+                    <a href="/#memory" class="next-card">
+                        <i data-lucide="database"></i>
+                        <h3>Memory System</h3>
+                        <p>Understand persistent memory</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3 class="mark-logo">MARK</h3>
+                    </div>
+                    <p class="footer-description">A professional AI Terminal Wrapper with persistent memory.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/piskevalee-cpu/mark" target="_blank">GitHub Repository</a></li>
+                        <li><a href="/">Documentation Home</a></li>
+                        <li><a href="/#commands">Command Reference</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" target="_blank">MIT License</a></li>
+                        <li><a href="#" target="_blank">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">Created by <a href="https://github.com/piskevalee-cpu" target="_blank">Valerio Pischedda</a>. Made
+                    with ❤️ for the terminal community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const menuToggle = document.createElement('div');
+        menuToggle.className = 'menu-toggle';
+        menuToggle.innerHTML = '<i data-lucide="menu"></i>';
+        menuToggle.onclick = function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.querySelector('.nav-buttons').classList.toggle('active');
+        };
+
+        document.querySelector('.nav-container').appendChild(menuToggle);
+        lucide.createIcons(); // Re-initialize icons after DOM manipulation
+    </script>
+</body>
+</html>

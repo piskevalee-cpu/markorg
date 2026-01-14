@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Reference - MARK Docs</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="marknewlogo.png">
+
+    <!-- Google Fonts - adding retro/video game style font for titles -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DM+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>MARK</h2>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#installation">Installation</a>
+                <a href="/#commands">Commands</a>
+                <a href="/#kleos">Kleos</a>
+                <a href="/#memory">Memory</a>
+                <a href="/#models">Models</a>
+                <a href="/#configuration">Config</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="https://github.com/piskevalee-cpu/mark" target="_blank" class="github-link">
+                    <i data-lucide="github"></i>
+                    GitHub
+                </a>
+                <a href="https://github.com/piskevalee-cpu/mark/archive/refs/heads/main.zip" class="download-btn">
+                    <i data-lucide="download"></i>
+                    Download
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Commands Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Command Reference</h1>
+            <p>Complete guide to all MARK commands and their usage.</p>
+        </div>
+    </section>
+
+    <!-- Commands Content -->
+    <section class="commands-page">
+        <div class="container">
+            <div class="command-categories">
+                <h2>Command Categories</h2>
+                
+                <div class="category-grid">
+                    <div class="category-card">
+                        <i data-lucide="help-circle"></i>
+                        <h3>Help & Info</h3>
+                        <p>Get assistance and information about MARK</p>
+                    </div>
+                    
+                    <div class="category-card">
+                        <i data-lucide="cpu"></i>
+                        <h3>AI Control</h3>
+                        <p>Manage AI providers and models</p>
+                    </div>
+                    
+                    <div class="category-card">
+                        <i data-lucide="database"></i>
+                        <h3>Memory</h3>
+                        <p>Store and retrieve persistent information</p>
+                    </div>
+                    
+                    <div class="category-card">
+                        <i data-lucide="settings"></i>
+                        <h3>Configuration</h3>
+                        <p>Adjust settings and preferences</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="command-list">
+                <h2>Basic Commands</h2>
+                
+                <div class="command-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/help</code></td>
+                                <td>Show help menu with all available commands</td>
+                                <td><code>/help</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>/clear</code> or <code>/cls</code></td>
+                                <td>Clear the terminal screen</td>
+                                <td><code>/clear</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>/quit</code>, <code>/exit</code>, <code>/q</code></td>
+                                <td>Exit MARK</td>
+                                <td><code>/quit</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>/reset</code></td>
+                                <td>Clear current conversation context</td>
+                                <td><code>/reset</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>/stats</code></td>
+                                <td>View session usage and token costs</td>
+                                <td><code>/stats</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="command-list">
+                <h2>AI Provider & Model Commands</h2>
+                
+                <div class="command-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/model</code></td>
+                                <td>Switch AI provider and model interactively</td>
+                                <td><code>/model</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>/kleos &lt;prompt&gt;</code></td>
+                                <td>Activate <span style="color: var(--kleos); font-weight: bold;">Kleos System</span> for advanced reasoning</td>
+                                <td><code>/kleos Explain quantum computing</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="command-list">
+                <h2>Memory Commands</h2>
+                
+                <div class="command-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/memory list</code></td>
+                                <td>View all saved memories</td>
+                                <td><code>/memory list</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>/memory search &lt;term&gt;</code></td>
+                                <td>Semantic search in memory</td>
+                                <td><code>/memory search Python</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>/memory delete &lt;id&gt;</code></td>
+                                <td>Delete a specific memory by ID</td>
+                                <td><code>/memory delete 5</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>/memory clear</code></td>
+                                <td>Delete all memories</td>
+                                <td><code>/memory clear</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="natural-memory">
+                    <h3>Natural Language Memory Commands</h3>
+                    <p>You can also use natural language to store memories:</p>
+                    
+                    <div class="examples-grid">
+                        <div class="example-card">
+                            <h4>English</h4>
+                            <pre><code class="language-markdown">remember that my name is John
+remember that I prefer Python for scripting
+remember that I live in New York
+remember that my favorite programming language is Python</code></pre>
+                        </div>
+                        
+                        <div class="example-card">
+                            <h4>Italian</h4>
+                            <pre><code class="language-markdown">ricorda che mi chiamo Marco
+ricorda che lavoro come sviluppatore
+ricorda che vivo a Milano
+ricorda che amo il caffè</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="command-list">
+                <h2>Configuration Commands</h2>
+                
+                <div class="command-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/config</code></td>
+                                <td>Update API keys and default settings</td>
+                                <td><code>/config</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>/changeusr &lt;name&gt;</code> or <code>/changename &lt;name&gt;</code></td>
+                                <td>Change your username</td>
+                                <td><code>/changeusr Alice</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="command-examples">
+                <h2>Command Usage Examples</h2>
+                
+                <div class="example-card">
+                    <h3>Getting Started</h3>
+                    <pre><code class="language-markdown"># Get help
+/help
+
+# Clear the screen
+/clear
+
+# Exit MARK
+/quit</code></pre>
+                </div>
+                
+                <div class="example-card">
+                    <h3>Managing Memory</h3>
+                    <pre><code class="language-markdown"># Store information
+remember that my preferred language is Python
+
+# View stored memories
+/memory list
+
+# Search for specific memories
+/memory search language
+
+# Delete a memory
+/memory delete 3</code></pre>
+                </div>
+                
+                <div class="example-card">
+                    <h3 style="color: var(--kleos);">Using Kleos System</h3>
+                    <pre><code class="language-markdown"># Activate advanced reasoning
+/kleos Explain how to build a neural network from scratch
+
+# Kleos will analyze, ask questions, and provide detailed response</code></pre>
+                </div>
+                
+                <div class="example-card">
+                    <h3>Switching Models</h3>
+                    <pre><code class="language-markdown"># Change AI provider/model
+/model
+
+# Follow the interactive prompts to select provider and model</code></pre>
+                </div>
+            </div>
+            
+            <div class="keyboard-shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+                
+                <div class="shortcut-grid">
+                    <div class="shortcut-card">
+                        <kbd>Ctrl+C</kbd>
+                        <p>Interrupt current AI response</p>
+                    </div>
+                    
+                    <div class="shortcut-card">
+                        <kbd>Up Arrow</kbd>
+                        <p>Recall previous command</p>
+                    </div>
+                    
+                    <div class="shortcut-card">
+                        <kbd>Tab</kbd>
+                        <p>Auto-complete commands (if supported)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MARK</h3>
+                    <p>A professional AI Terminal Wrapper with persistent memory.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/piskevalee-cpu/mark" target="_blank">GitHub Repository</a></li>
+                        <li><a href="/">Documentation Home</a></li>
+                        <li><a href="/#installation">Installation Guide</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#" target="_blank">MIT License</a></li>
+                        <li><a href="#" target="_blank">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Created by <a href="https://github.com/piskevalee-cpu" target="_blank">Valerio Pischedda</a>. Made with ❤️ for the terminal community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Mobile menu toggle
+        const menuToggle = document.createElement('div');
+        menuToggle.className = 'menu-toggle';
+        menuToggle.innerHTML = '<i data-lucide="menu"></i>';
+        menuToggle.onclick = function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.querySelector('.nav-buttons').classList.toggle('active');
+        };
+
+        document.querySelector('.nav-container').appendChild(menuToggle);
+        lucide.createIcons(); // Re-initialize icons after DOM manipulation
+    </script>
+</body>
+</html>

@@ -1,0 +1,1108 @@
+/* CSS for MARK Documentation Site */
+/* Based on Anthropic's design principles */
+
+:root {
+  /* MARK dark theme color palette - using exact colors from interface.py */
+  --primary: #e11d48;
+  /* Rose 600 (Red) - MARK primary */
+  --secondary: #be123c;
+  /* Rose 700 (Darker Red) - MARK secondary */
+  --success: #22c55e;
+  /* Green */
+  --warning: #f59e0b;
+  /* Amber */
+  --error: #9f1239;
+  /* Rose 800 (Deep Red for errors) */
+  --info: #fb7185;
+  /* Rose 400 (Lighter Red) */
+  --muted: #6b7280;
+  /* Gray */
+  --user: #fda4af;
+  /* Rose 300 (Very Light Red) */
+  --ai: #e11d48;
+  /* Rose 600 (Primary Red) */
+  --border: #be123c;
+  /* Rose 700 */
+  --kleos: #fde047;
+  /* Yellow 300 - Bright yellow for Kleos */
+  --accent: #fda4af;
+  /* Light red/pink */
+  --bg-primary: #0f0f0f;
+  /* Very dark background */
+  --bg-secondary: #1a1a1a;
+  /* Dark gray background */
+  --text-primary: #f0f0f0;
+  /* Light text */
+  --text-secondary: #a0a0a0;
+  /* Muted text */
+
+  /* Additional colors for UI elements */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-medium: 0 4px 12px rgba(225, 29, 72, 0.2);
+  --shadow-heavy: 0 8px 24px rgba(225, 29, 72, 0.3);
+
+  /* Spacing variables */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-xxl: 4rem;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Typography */
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Press Start 2P', 'Courier New', monospace;
+  --font-mono: 'Fira Code', 'Monaco', 'Consolas', monospace;
+
+  /* Max content width */
+  --max-width: 1200px;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Scroll offset for anchor links to account for sticky navbar */
+section {
+  scroll-margin-top: 90px;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Typography */
+/* Retro/video game style font for titles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.nav-logo h2 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: var(--spacing-md);
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: var(--spacing-lg);
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-secondary {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Navigation */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(12px);
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  min-height: 72px;
+  width: 100%;
+  left: 0;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+.nav-logo h2 {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-size: 1.2rem;
+  line-height: 1;
+  /* Compensate for Press Start 2P baseline offset */
+  position: relative;
+  top: 5px;
+}
+
+/* Make sure the logo doesn't have any pseudo-elements or underlines */
+.nav-logo h2::after {
+  display: none !important;
+}
+
+/* Ensure the logo has no bottom border or line */
+.nav-logo {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Navigation links styling */
+.nav-links a {
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Apply the underline effect only to navigation links, not the logo */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* Special hover effect for Kleos link */
+.nav-links a[href="#kleos"]:hover,
+.nav-links a[href="/#kleos"]:hover,
+.nav-links a[href="/kleos.html"]:hover {
+  color: var(--kleos) !important;
+  text-shadow: 0 0 8px rgba(253, 224, 71, 0.4);
+}
+
+/* Special effect for Kleos link underline - always yellow */
+.nav-links a[href="#kleos"]::after,
+.nav-links a[href="/#kleos"]::after,
+.nav-links a[href="/kleos.html"]::after {
+  background-color: var(--kleos);
+  box-shadow: 0 0 4px rgba(253, 224, 71, 0.3);
+}
+
+.nav-links a[href="#kleos"]:hover::after,
+.nav-links a[href="/#kleos"]:hover::after,
+.nav-links a[href="/kleos.html"]:hover::after {
+  background-color: var(--kleos);
+  box-shadow: 0 0 8px rgba(253, 224, 71, 0.6);
+}
+
+.nav-buttons {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+  height: 100%;
+}
+
+.github-link,
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  background-color: var(--bg-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  text-decoration: none;
+}
+
+.github-link:hover,
+.download-btn:hover {
+  background-color: var(--primary);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  text-decoration: none;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+/* Hero Section */
+.hero {
+  padding: var(--spacing-xxl) 0;
+  text-align: center;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(225, 29, 72, 0.15) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  text-shadow: 0 0 10px rgba(225, 29, 72, 0.3);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-xl);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+
+/* Features Section */
+.features {
+  padding: var(--spacing-xxl) 0;
+  background-color: var(--bg-primary);
+}
+
+.features h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-xxl);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+  color: var(--text-primary);
+}
+
+.feature-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  color: var(--text-primary);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Special hover effect for Kleos System card - yellow glow instead of red */
+.feature-card:nth-child(2):hover {
+  border-color: var(--kleos);
+  box-shadow: 0 0 20px rgba(253, 224, 71, 0.5);
+}
+
+/* Make the icon for Kleos System always yellow */
+.feature-card:nth-child(2) .feature-icon {
+  background-color: rgba(253, 224, 71, 0.2);
+  color: var(--kleos);
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(225, 29, 72, 0.2);
+  border-radius: 50%;
+  color: var(--accent);
+}
+
+.feature-icon i {
+  width: 30px;
+  height: 30px;
+}
+
+.feature-card h3 {
+  margin-bottom: var(--spacing-sm);
+  color: var(--accent);
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+/* Installation Section */
+.installation {
+  padding: var(--spacing-xxl) 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.installation h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-xxl);
+}
+
+.install-steps {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.step {
+  display: flex;
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+  color: var(--text-primary);
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 29px;
+  top: 50px;
+  bottom: calc(-1 * var(--spacing-xl));
+  width: 2px;
+  background-color: var(--border-color);
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: var(--accent);
+  color: var(--bg-primary);
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-right: var(--spacing-md);
+  z-index: 1;
+}
+
+.step-content h3 {
+  margin-top: 0;
+}
+
+.setup-note {
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--accent);
+  color: var(--text-primary);
+}
+
+/* Commands Section */
+.commands {
+  padding: var(--spacing-xxl) 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.commands h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.command-table {
+  overflow-x: auto;
+  margin-bottom: var(--spacing-xl);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-color);
+}
+
+th,
+td {
+  padding: var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+th {
+  background-color: var(--bg-primary);
+  font-weight: 600;
+  color: var(--accent);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr {
+  transition: background-color 0.3s ease;
+}
+
+tr:hover {
+  background-color: var(--bg-primary);
+}
+
+code {
+  font-family: var(--font-mono);
+  background-color: var(--bg-secondary);
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.memory-commands {
+  max-width: 800px;
+  margin: var(--spacing-xl) auto 0;
+}
+
+.memory-commands ul {
+  list-style: none;
+  padding: 0;
+  color: var(--text-primary);
+}
+
+.memory-commands li {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--border-color);
+  color: var(--text-primary);
+}
+
+.memory-commands li:last-child {
+  border-bottom: none;
+}
+
+/* Kleos Section */
+.kleos {
+  padding: var(--spacing-xxl) 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.kleos h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.kleos-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.kleos-content ol {
+  padding-left: var(--spacing-lg);
+  margin: var(--spacing-md) 0;
+}
+
+.kleos-content li {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Kleos Banner with yellow glow effect */
+.kleos-banner {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, #2a1b0a 100%);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInUp 0.8s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kleos-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(253, 224, 71, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.kleos-banner:hover {
+  border-color: var(--kleos);
+  box-shadow: 0 0 20px rgba(253, 224, 71, 0.3);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.kleos-banner h3 {
+  color: var(--kleos);
+  margin-top: 0;
+  text-shadow: 0 0 8px rgba(253, 224, 71, 0.4);
+}
+
+/* Kleos text styling */
+.kleos-text {
+  color: var(--kleos) !important;
+  font-weight: bold;
+}
+
+.kleos-highlight {
+  color: var(--kleos);
+  text-shadow: 0 0 8px rgba(253, 224, 71, 0.4);
+  transition: all 0.3s ease;
+}
+
+.kleos-highlight:hover {
+  text-shadow: 0 0 15px rgba(253, 224, 71, 0.8);
+}
+
+/* Memory Section */
+.memory {
+  padding: var(--spacing-xxl) 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.memory h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.memory-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Configuration Section */
+.configuration {
+  padding: var(--spacing-xxl) 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Models Section */
+.models {
+  padding: var(--spacing-xxl) 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.models h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.models-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.models-content p {
+  text-align: center;
+}
+
+.provider-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+}
+
+.provider-section h3 {
+  color: var(--accent);
+  margin-bottom: var(--spacing-lg);
+}
+
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.model-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  transition: all 0.3s ease;
+}
+
+.model-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(253, 224, 71, 0.2);
+  transform: translateY(-5px);
+}
+
+.model-card h4 {
+  margin: 0 0 var(--spacing-sm) 0;
+  color: var(--primary);
+}
+
+.model-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .provider-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.config-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.config-content ul {
+  padding-left: var(--spacing-lg);
+  margin: var(--spacing-sm) 0;
+}
+
+.config-content li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: var(--spacing-xl) 0 var(--spacing-md);
+  margin-top: var(--spacing-xxl);
+  border-top: 1px solid var(--border-color);
+}
+
+/* Professional footer styles */
+.footer-logo {
+  margin-bottom: var(--spacing-sm);
+}
+
+.mark-logo {
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+/* Ensure footer MARK logo is red like the main header */
+.footer .mark-logo {
+  color: var(--primary) !important;
+}
+
+.footer-description {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0 0 var(--spacing-md) 0;
+  max-width: 280px;
+  line-height: 1.5;
+}
+
+.footer-heading {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin: 0 0 var(--spacing-sm) 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.footer-copyright {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+  text-align: center;
+}
+
+.footer-copyright a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer-copyright a:hover {
+  text-decoration: underline;
+}
+
+/* Error Page */
+.error-page {
+  padding: var(--spacing-xxl) 0;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.error-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.error-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-secondary);
+  border-radius: 50%;
+  color: var(--secondary);
+}
+
+.error-icon i {
+  width: 50px;
+  height: 50px;
+}
+
+.error-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary);
+}
+
+.error-content p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.error-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .error-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+  max-width: var(--max-width);
+  margin: 0 auto var(--spacing-xl);
+  padding: 0 var(--spacing-md);
+}
+
+.footer h3,
+.footer h4 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.footer ul {
+  list-style: none;
+}
+
+.footer ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer a {
+  color: var(--text-secondary);
+}
+
+.footer a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.footer-bottom a {
+  color: var(--accent);
+}
+
+/* Code blocks */
+pre {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: var(--spacing-md) 0;
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  border: 1px solid var(--border-color);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  color: var(--text-primary);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  :root {
+    --spacing-md: 1rem;
+    --spacing-lg: 1.25rem;
+    --spacing-xl: 1.5rem;
+    --spacing-xxl: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: none;
+    right: 0;
+    background-color: var(--bg-primary);
+    flex-direction: column;
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-medium);
+    z-index: 100;
+    border: 1px solid var(--border-color);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-buttons {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-primary);
+    flex-direction: column;
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-medium);
+    z-index: 100;
+    border: 1px solid var(--border-color);
+  }
+
+  .nav-buttons.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .step {
+    flex-direction: column;
+  }
+
+  .step:not(:last-child)::after {
+    display: none;
+  }
+
+  .step-number {
+    margin-bottom: var(--spacing-md);
+  }
+}

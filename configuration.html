@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration - MARK Docs</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="marknewlogo.png">
+
+    <!-- Google Fonts - adding retro/video game style font for titles -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DM+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>MARK</h2>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#installation">Installation</a>
+                <a href="/#commands">Commands</a>
+                <a href="/#kleos">Kleos</a>
+                <a href="/#memory">Memory</a>
+                <a href="/#models">Models</a>
+                <a href="/#configuration">Config</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="https://github.com/piskevalee-cpu/mark" target="_blank" class="github-link">
+                    <i data-lucide="github"></i>
+                    GitHub
+                </a>
+                <a href="https://github.com/piskevalee-cpu/mark/archive/refs/heads/main.zip" class="download-btn">
+                    <i data-lucide="download"></i>
+                    Download
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Configuration Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Configuration</h1>
+            <p>Customize MARK to suit your preferences and needs.</p>
+        </div>
+    </section>
+
+    <!-- Configuration Content -->
+    <section class="configuration-page">
+        <div class="container">
+            <div class="config-intro">
+                <h2>About Configuration</h2>
+                <p>MARK stores its configuration in a JSON file located at <code>~/.mark/config.json</code> on your system. The configuration includes your default provider, model, language preferences, and other settings that customize your experience.</p>
+            </div>
+            
+            <div class="config-options">
+                <h2>Configuration Options</h2>
+                
+                <div class="option-card">
+                    <h3>Default Provider</h3>
+                    <p>The AI provider MARK uses by default. Can be changed at runtime with <code>/model</code>.</p>
+                    <ul>
+                        <li><strong>Groq:</strong> Fast inference with models like Llama 3.3 70B</li>
+                        <li><strong>Google:</strong> Gemini models and Gemma</li>
+                    </ul>
+                </div>
+                
+                <div class="option-card">
+                    <h3>Default Model</h3>
+                    <p>The specific AI model to use by default. Different providers offer different models with varying capabilities.</p>
+                    <ul>
+                        <li><strong>Groq Models:</strong> <code>llama-3.3-70b-versatile</code>, <code>openai/gpt-oss-120b</code>, <code>moonshotai/Kimi-K2-Instruct</code></li>
+                        <li><strong>Google Models:</strong> <code>gemini-2.5-flash</code>, <code>gemini-2.5-flash-lite</code>, <code>gemma-3-27b</code></li>
+                    </ul>
+                </div>
+                
+                <div class="option-card">
+                    <h3>Language Preference</h3>
+                    <p>MARK supports multiple languages including English, Italian, German, French, and Spanish. The language affects system prompts and UI elements.</p>
+                    <p>Some models like Gemma 3 27B have language-specific variants.</p>
+                </div>
+                
+                <div class="option-card">
+                    <h3>Theme</h3>
+                    <p>Visual theme for the terminal interface. Currently supports different color schemes.</p>
+                </div>
+                
+                <div class="option-card">
+                    <h3>Auto-save Conversations</h3>
+                    <p>Whether to automatically save conversations to the local database for future reference.</p>
+                </div>
+                
+                <div class="option-card">
+                    <h3>Max Context Messages</h3>
+                    <p>The maximum number of conversation turns to keep in the context before trimming older messages.</p>
+                </div>
+            </div>
+            
+            <div class="api-keys">
+                <h2>API Key Management</h2>
+                
+                <div class="api-section">
+                    <h3>Secure Storage</h3>
+                    <p>MARK stores API keys securely using your operating system's native keychain:</p>
+                    <ul>
+                        <li><strong>Windows:</strong> Windows Credential Manager</li>
+                        <li><strong>macOS:</strong> macOS Keychain</li>
+                        <li><strong>Linux:</strong> Secret Service API (GNOME Keyring, KWallet)</li>
+                    </ul>
+                    <p>API keys are never stored in plain text in the configuration file.</p>
+                </div>
+                
+                <div class="api-section">
+                    <h3>Supported Providers</h3>
+                    
+                    <div class="provider-grid">
+                        <div class="provider-card">
+                            <h4>Groq</h4>
+                            <p>Get your API key from <a href="https://console.groq.com/keys" target="_blank">console.groq.com</a></p>
+                            <p>Known for fast inference speeds and high rate limits.</p>
+                        </div>
+                        
+                        <div class="provider-card">
+                            <h4>Google</h4>
+                            <p>Get your API key from <a href="https://aistudio.google.com/apikey" target="_blank">aistudio.google.com</a></p>
+                            <p>Access to Gemini models and the experimental Gemma series.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="configuration-methods">
+                <h2>Configuration Methods</h2>
+                
+                <div class="method-card">
+                    <h3>Interactive Setup</h3>
+                    <p>Use the <code>/config</code> command to run the interactive setup wizard:</p>
+                    <pre><code class="language-bash">/config</code></pre>
+                    <p>This will guide you through setting up your API keys, selecting a provider, and choosing a model.</p>
+                </div>
+                
+                <div class="method-card">
+                    <h3>Runtime Model Switching</h3>
+                    <p>Use the <code>/model</code> command to switch providers and models without restarting MARK:</p>
+                    <pre><code class="language-bash">/model</code></pre>
+                    <p>This command provides an interactive interface to select a new provider and model.</p>
+                </div>
+                
+                <div class="method-card">
+                    <h3>Username Change</h3>
+                    <p>Change your username with the <code>/changeusr</code> command:</p>
+                    <pre><code class="language-bash">/changeusr NewName</code></pre>
+                    <p>or</p>
+                    <pre><code class="language-bash">/changename NewName</code></pre>
+                </div>
+            </div>
+            
+            <div class="environment-variables">
+                <h2>Environment Variables</h2>
+                
+                <p>As an alternative to interactive configuration, you can set API keys using environment variables:</p>
+                
+                <div class="env-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Variable</th>
+                                <th>Provider</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>GROQ_API_KEY</code></td>
+                                <td>Groq</td>
+                                <td><code>GROQ_API_KEY=your_key_here</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>GOOGLE_API_KEY</code></td>
+                                <td>Google</td>
+                                <td><code>GOOGLE_API_KEY=your_key_here</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <p>Note: Keys set via environment variables will override those stored in the keychain for the current session.</p>
+            </div>
+            
+            <div class="troubleshooting">
+                <h2>Configuration Troubleshooting</h2>
+                
+                <div class="issue-card">
+                    <h3>Invalid API Key</h3>
+                    <p>If you receive an "Invalid API key" error:</p>
+                    <ol>
+                        <li>Verify your API key is correct</li>
+                        <li>Check that your account has sufficient credits</li>
+                        <li>Try re-entering the key with <code>/config</code></li>
+                    </ol>
+                </div>
+                
+                <div class="issue-card">
+                    <h3>Model Not Available</h3>
+                    <p>If a model is unavailable:</p>
+                    <ol>
+                        <li>Check that your provider subscription includes the model</li>
+                        <li>Try a different model with <code>/model</code></li>
+                        <li>Verify your region supports the model</li>
+                    </ol>
+                </div>
+                
+                <div class="issue-card">
+                    <h3>Configuration File Corruption</h3>
+                    <p>If MARK fails to start due to configuration issues:</p>
+                    <ol>
+                        <li>Locate the config file at <code>~/.mark/config.json</code></li>
+                        <li>Backup and remove the file to reset to defaults</li>
+                        <li>Restart MARK to run initial setup again</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MARK</h3>
+                    <p>A professional AI Terminal Wrapper with persistent memory.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/piskevalee-cpu/mark" target="_blank">GitHub Repository</a></li>
+                        <li><a href="/">Documentation Home</a></li>
+                        <li><a href="/#commands">Command Reference</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#" target="_blank">MIT License</a></li>
+                        <li><a href="#" target="_blank">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Created by <a href="https://github.com/piskevalee-cpu" target="_blank">Valerio Pischedda</a>. Made with ❤️ for the terminal community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const menuToggle = document.createElement('div');
+        menuToggle.className = 'menu-toggle';
+        menuToggle.innerHTML = '<i data-lucide="menu"></i>';
+        menuToggle.onclick = function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.querySelector('.nav-buttons').classList.toggle('active');
+        };
+
+        document.querySelector('.nav-container').appendChild(menuToggle);
+        lucide.createIcons(); // Re-initialize icons after DOM manipulation
+    </script>
+</body>
+</html>

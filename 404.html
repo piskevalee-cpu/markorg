@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - MARK Docs</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="marknewlogo.png">
+
+    <!-- Google Fonts - adding retro/video game style font for titles -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DM+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>MARK</h2>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#installation">Installation</a>
+                <a href="/#commands">Commands</a>
+                <a href="/#kleos">Kleos</a>
+                <a href="/#memory">Memory</a>
+                <a href="/#models">Models</a>
+                <a href="/#configuration">Config</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="https://github.com/piskevalee-cpu/mark" target="_blank" class="github-link">
+                    <i data-lucide="github"></i>
+                    GitHub
+                </a>
+                <a href="https://github.com/piskevalee-cpu/mark/archive/refs/heads/main.zip" class="download-btn">
+                    <i data-lucide="download"></i>
+                    Download
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 404 Content -->
+    <section class="error-page">
+        <div class="container">
+            <div class="error-content">
+                <div class="error-icon">
+                    <i data-lucide="file-search"></i>
+                </div>
+                <h1>Page Not Found</h1>
+                <p>Sorry, the page you're looking for doesn't exist.</p>
+                <div class="error-actions">
+                    <a href="/" class="btn btn-primary">Go to Homepage</a>
+                    <a href="/#documentation" class="btn btn-secondary">Browse Documentation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MARK</h3>
+                    <p>A professional AI Terminal Wrapper with persistent memory.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/piskevalee-cpu/mark" target="_blank">GitHub Repository</a></li>
+                        <li><a href="/">Documentation Home</a></li>
+                        <li><a href="/#commands">Command Reference</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#" target="_blank">MIT License</a></li>
+                        <li><a href="#" target="_blank">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Created by <a href="https://github.com/piskevalee-cpu" target="_blank">Valerio Pischedda</a>. Made with ❤️ for the terminal community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const menuToggle = document.createElement('div');
+        menuToggle.className = 'menu-toggle';
+        menuToggle.innerHTML = '<i data-lucide="menu"></i>';
+        menuToggle.onclick = function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.querySelector('.nav-buttons').classList.toggle('active');
+        };
+
+        document.querySelector('.nav-container').appendChild(menuToggle);
+        lucide.createIcons(); // Re-initialize icons after DOM manipulation
+    </script>
+</body>
+</html>

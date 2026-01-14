@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory System - MARK Docs</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="marknewlogo.png">
+
+    <!-- Google Fonts - adding retro/video game style font for titles -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DM+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>MARK</h2>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#installation">Installation</a>
+                <a href="/#commands">Commands</a>
+                <a href="/#kleos">Kleos</a>
+                <a href="/#memory">Memory</a>
+                <a href="/#models">Models</a>
+                <a href="/#configuration">Config</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="https://github.com/piskevalee-cpu/mark" target="_blank" class="github-link">
+                    <i data-lucide="github"></i>
+                    GitHub
+                </a>
+                <a href="https://github.com/piskevalee-cpu/mark/archive/refs/heads/main.zip" class="download-btn">
+                    <i data-lucide="download"></i>
+                    Download
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Memory Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Memory System</h1>
+            <p>MARK's persistent local memory that remembers information forever with 100% local storage.</p>
+        </div>
+    </section>
+
+    <!-- Memory Content -->
+    <section class="memory-page">
+        <div class="container">
+            <div class="memory-intro">
+                <h2>What is the Memory System?</h2>
+                <p>MARK's memory system is its standout feature. If you tell MARK something, it remembers it forever (saved locally on your machine). Unlike other AI assistants that forget after each session, MARK maintains a persistent memory of your preferences, facts, and information.</p>
+                
+                <div class="privacy-note">
+                    <h3>Privacy First</h3>
+                    <p>All memories are stored locally on your machine using a SQLite database. No data is sent to external servers. Your personal information remains completely private and secure.</p>
+                </div>
+            </div>
+            
+            <div class="how-it-works">
+                <h2>How the Memory System Works</h2>
+                
+                <div class="process-grid">
+                    <div class="process-card">
+                        <div class="process-number">1</div>
+                        <h3>Storage</h3>
+                        <p>MARK uses a local SQLite database to store your memories. Each memory has a key-value structure with metadata for organization.</p>
+                    </div>
+                    
+                    <div class="process-card">
+                        <div class="process-number">2</div>
+                        <h3>Categorization</h3>
+                        <p>The system intelligently categorizes information based on content. For example, "my name is John" gets categorized under "name".</p>
+                    </div>
+                    
+                    <div class="process-card">
+                        <div class="process-number">3</div>
+                        <h3>Retrieval</h3>
+                        <p>When you ask a question, MARK retrieves relevant memories and includes them in the AI context for personalized responses.</p>
+                    </div>
+                    
+                    <div class="process-card">
+                        <div class="process-number">4</div>
+                        <h3>Context</h3>
+                        <p>Memories are seamlessly integrated into conversations without you having to recall previous information.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="memory-commands">
+                <h2>Memory Commands</h2>
+                
+                <div class="command-section">
+                    <h3>Natural Language Commands</h3>
+                    <p>You can use natural language to store memories in multiple languages:</p>
+                    
+                    <div class="examples-grid">
+                        <div class="example-card">
+                            <h4>English</h4>
+                            <pre><code class="language-markdown">remember that my name is John
+remember that I prefer Python for scripting
+remember that I live in New York
+remember that my favorite color is blue</code></pre>
+                        </div>
+                        
+                        <div class="example-card">
+                            <h4>Italian</h4>
+                            <pre><code class="language-markdown">ricorda che mi chiamo Marco
+ricorda che lavoro come sviluppatore
+ricorda che vivo a Milano
+ricorda che amo il caffè</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="command-section">
+                    <h3>Management Commands</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/memory list</code></td>
+                                <td>View all saved memories</td>
+                            </tr>
+                            <tr>
+                                <td><code>/memory search &lt;term&gt;</code></td>
+                                <td>Semantic search in memory</td>
+                            </tr>
+                            <tr>
+                                <td><code>/memory delete &lt;id&gt;</code></td>
+                                <td>Delete a specific memory by ID</td>
+                            </tr>
+                            <tr>
+                                <td><code>/memory clear</code></td>
+                                <td>Delete all memories</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="practical-examples">
+                <h2>Practical Examples</h2>
+                
+                <div class="example-scenario">
+                    <h3>Personal Preferences</h3>
+                    <p>After telling MARK your preferences once, it remembers them for all future interactions:</p>
+                    <pre><code class="language-markdown"># You say once:
+> remember that I prefer Python for scripting
+
+# Later, when you ask:
+> write a script to sort a list
+
+# MARK responds with Python code automatically because it remembers your preference!</code></pre>
+                </div>
+                
+                <div class="example-scenario">
+                    <h3>Project Information</h3>
+                    <p>Store details about ongoing projects to maintain context:</p>
+                    <pre><code class="language-markdown"># At the start of a project:
+> remember that I'm working on a web scraping project in Python
+> remember that the project is called "DataHarvester"
+> remember that the target website is https://example.com
+
+# Later, when you ask for help:
+> how do I handle rate limiting in my project?
+
+# MARK knows you're referring to the "DataHarvester" project!</code></pre>
+                </div>
+                
+                <div class="example-scenario">
+                    <h3>Personal Facts</h3>
+                    <p>Maintain personal information for personalized assistance:</p>
+                    <pre><code class="language-markdown"># Store personal information:
+> remember that my name is Sarah Johnson
+> remember that I live in Seattle, WA
+> remember that I work as a data scientist
+> remember that I have a dog named Max
+
+# When asking for location-based information:
+> what's the weather forecast?
+
+# MARK can provide Seattle-specific information!</code></pre>
+                </div>
+            </div>
+            
+            <div class="security">
+                <h2>Security & Privacy</h2>
+                
+                <div class="security-points">
+                    <div class="security-card">
+                        <i data-lucide="lock"></i>
+                        <h3>Local Storage</h3>
+                        <p>All memories are stored locally on your machine using SQLite. No data leaves your computer.</p>
+                    </div>
+                    
+                    <div class="security-card">
+                        <i data-lucide="shield"></i>
+                        <h3>Encrypted Keys</h3>
+                        <p>API keys are stored securely using your OS's native keychain (Windows Credential Manager, macOS Keychain, etc.).</p>
+                    </div>
+                    
+                    <div class="security-card">
+                        <i data-lucide="eye-off"></i>
+                        <h3>No Data Sharing</h3>
+                        <p>MARK never shares your personal information with third parties or external services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3 class="mark-logo">MARK</h3>
+                    </div>
+                    <p class="footer-description">A professional AI Terminal Wrapper with persistent memory.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/piskevalee-cpu/mark" target="_blank">GitHub Repository</a></li>
+                        <li><a href="/">Documentation Home</a></li>
+                        <li><a href="/#commands">Command Reference</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" target="_blank">MIT License</a></li>
+                        <li><a href="#" target="_blank">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">Created by <a href="https://github.com/piskevalee-cpu" target="_blank">Valerio Pischedda</a>. Made
+                    with ❤️ for the terminal community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const menuToggle = document.createElement('div');
+        menuToggle.className = 'menu-toggle';
+        menuToggle.innerHTML = '<i data-lucide="menu"></i>';
+        menuToggle.onclick = function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.querySelector('.nav-buttons').classList.toggle('active');
+        };
+
+        document.querySelector('.nav-container').appendChild(menuToggle);
+        lucide.createIcons(); // Re-initialize icons after DOM manipulation
+    </script>
+</body>
+</html>
